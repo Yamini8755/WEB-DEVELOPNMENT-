@@ -1,0 +1,215 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Course Website</title>
+    <style>
+      /* styles.css */
+    body 
+    {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav 
+    {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    }
+
+    nav ul 
+    {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav li 
+    {
+        margin-right: 20px;
+    }
+
+    nav a 
+    {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    nav a:hover 
+    {
+        color: #ccc;
+    }
+
+    section 
+    {
+        padding: 2rem;
+    }
+
+    h1 
+    {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    button 
+    {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    button:hover 
+    {
+        background-color: #444;
+    }
+
+    #register-form 
+    {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #register-form label 
+    {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+
+    #register-form input[type="text"],
+    #register-form input[type="email"],
+    #register-form input[type="password"] {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  }
+
+   #register-form select 
+   {
+    width: 100%;
+    height: 2rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+   }
+
+   #register-btn 
+   {
+    margin-top: 1rem;
+   }
+</style>
+</head>
+<body>
+     <img src="C:\Users\aksha\Downloads\task\bg-img.png" alt="not found" height="300" width="1300"></img>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home">
+        <h1>Welcome to Our Online Course Website!</h1>
+        <p>Explore our courses and register today!</p>
+        <button id="register-btn">Register Now</button>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about">
+        <h1>About Us</h1>
+        <p>This is a brief description of our company.</p>
+        <p>We are dedicated to providing high-quality online courses.</p>
+    </section>
+
+    <!-- Registration Page -->
+    <section id="register">
+        <h1>Register for a Course</h1>
+        <form id="register-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <label for="course">Select a Course:</label>
+            <select id="course" name="course">
+                <option value="course1">C</option>
+                <option value="course2">Java</option>
+                <option value="course3">Javascript</option>
+            </select><br><br>
+            <button id="register-btn">Register</button>
+        </form>
+    </section>
+
+    <!-- Contact Us Page -->
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us:</p>
+        <ul>
+            <li><a href="tel:08069289001">08069289001</a></li>
+            <li><a href="https://www.geeksforgeeks.org">www.geeksforgeeks.org</a></li>
+        </ul>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+    document.getElementById('register-btn').addEventListener('click', registerUser);
+     // Function to register user
+	function registerUser() 
+        {
+    	   // Get form values
+    	   var name = document.getElementById('name').value;
+    	   var email = document.getElementById('email').value;
+   	   var password = document.getElementById('password').value;
+    	   var course = document.getElementById('course').value;
+
+    // Validate form values
+    if (name === '' || email === '' || password === '' || course === '') {
+        alert('Please fill out all fields');
+        return;
+    }
+
+    // Send form values to server for registration
+    // Replace with actual server-side code
+    fetch('/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+            course: course
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Registration successful!');
+        } else {
+            alert('Registration failed. Please try again.');
+        }
+    })
+    .catch(error => console.error(error));
+}
+    </script>
+</body>
+</html>
