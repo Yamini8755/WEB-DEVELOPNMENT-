@@ -1,0 +1,48 @@
+html {
+    background-color: peachpuff;
+}
+.container{
+    display: inline-block;
+}
+
+p{
+    font-size: 20px;
+    margin: 40px;
+    
+}
+h1{
+    font-size: 50px;
+}
+.contact_button {
+    background-color: black;
+    color: white;
+    font-size: small;
+    padding: 25px;
+    width: 170px;
+}
+
+#show {
+    float: left;
+}
+
+#activi {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+h3{
+    padding: 0px;
+    margin: 0px;
+}
+.box1 {
+    background-color: orangered;
+    margin: 10px;
+    width: 300px;
+    height: 100px;
+    font-size: medium;
+    color: white;
+}
+.box1 p{
+    font-size: small;
+}
